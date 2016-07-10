@@ -1,0 +1,14 @@
+AddDefaultCharset Off
+<IfModule dir_module>
+    DirectoryIndex index.php
+RewriteCond %{HTTP_REFERER} !^$
+#Далее список разрешенных сайтов
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www.)?bashirov-photo.ru.*$ [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www.)?yandex.ru [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www.)?google. [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www.)?msn. [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www.)?yahoo. [NC]
+RewriteCond %{HTTP_REFERER} !search?q=cache [NC]
+#Список запрещенных для хотлинка форматов
+RewriteRule \.(jpe?g|bmp|gif|png|css|zip|pdf|txt|doc)$ - [NC,F,L]
+</IfModule>
